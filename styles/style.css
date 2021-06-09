@@ -1,2 +1,45 @@
+form {
+  /* background-color:yellow; */
+  text-align: center;
+}
 
-/*# sourceMappingURL=style.css.map */
+input {
+  border: solid 2px black;
+}
+
+button {
+  background-color: yellow;
+  margin-top: 10%;
+  margin-right: 20%;
+  border-radius: 20px;
+  font-size: large;
+  width: 30%;
+}
+
+h1 {
+  text-align: center;
+  text-shadow: 2px 2px yellow;
+}
+
+h2 {
+  margin-top: 10%;
+  text-align: center;
+  text-shadow: 2px 2px yellow;
+}
+
+h3 {
+  margin-top: 10%;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  width: 200px;
+  height: 250px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  float: left;
+  padding-right: 5%;
+}

@@ -62,7 +62,7 @@ function getEvents(city) {
     })
     .then(function (data) {
       const eventsArray = data['_embedded'].events;
-      console.log(eventsArray);
+      // console.log(eventsArray);
       displayEvents(eventsArray);
     });
 }
@@ -93,7 +93,7 @@ function displayEvents(eventsArray) {
     eventName.innerText = item.name;
 
     const eventLink = document.createElement('a');
-    eventLink.innerText = 'click this';
+    eventLink.innerText = 'More Info';
     // todo: check if URL works?
     eventLink.href = item.url;
 
@@ -122,7 +122,10 @@ formEl.addEventListener('submit', function (event) {
   const inputEl = document.querySelector('input[type=text]');
   const inputValue = inputEl.value;
   getEvents(inputValue);
+  
 });
+
+
 
 // // setting base url?
 // const url = new URL('https://app.ticketmaster.com/discovery/v2/events');
@@ -150,21 +153,21 @@ formEl.addEventListener('submit', function (event) {
 
 
 // setting base url?
-const url = new URL('https://app.ticketmaster.com/discovery/v2/events');
-url.search = new URLSearchParams({
-  apikey: 'X4inC7WFIbCIszNWQJSMcDLteLVtz85Z',
-  city: [''],
-  //function that updates the city parameter
-});
-fetch(url)
-  .then(function (res) {
-    return res.json();
-  })
-  .then(function (data) {
-    console.log(data['_embedded']);
-    const eventsArray = data['_embedded'].events;
-    const eventName = data['_embedded'].events[0].name;
-    console.log(eventName);
-    document.querySelector('h3').innerText = eventName;
-  });
+// const url = new URL('https://app.ticketmaster.com/discovery/v2/events');
+// url.search = new URLSearchParams({
+//   apikey: 'X4inC7WFIbCIszNWQJSMcDLteLVtz85Z',
+//   city: [''],
+//   //function that updates the city parameter
+// });
+// fetch(url)
+//   .then(function (res) {
+//     return res.json();
+//   })
+//   .then(function (data) {
+//     console.log(data['_embedded']);
+//     const eventsArray = data['_embedded'].events;
+//     const eventName = data['_embedded'].events[0].name;
+//     console.log(eventName);
+//     document.querySelector('h3').innerText = eventName;
+  // });
 

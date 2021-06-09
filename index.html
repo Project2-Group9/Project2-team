@@ -6,38 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>project2</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles/style.css">
 </head>
 
 <body>
-    <h1>Event Finder</h1>
+    <header>
+        <h1>Event Finder</h1>
+        <div class="wrapper header">
+            <h2 class="formHeader">Where are you going?</h2>
+            <form class="gridContainer" action="">
+                <label for="city">City:</label>
+                <input type="text" placeholder=city id="city">
+                <label for="date" class="startDateLabel">Start Date:</label>
+                <input type="date" placeholder="date" class="startDate" id="startDate">
+                <label for="date" class="endDateLabel">End Date:</label>
+                <input type="date" placeholder="date" class="endDate" id="endDate">
+                <button type="submit" value="Submit">Find Events</button>
+            </form>
+        </div>
+    </header>
 
-    <h2>Where are you going</h2>
+
 
     <div class="wrapper">
-        <form action="">
-
-            <label for="city"></label>
-            <input type="text" placeholder=city id="city">
-
-            <label for="date"></label>
-            <input type="date" placeholder="date" id="startDate">
-
-            <label for="date"></label>
-            <input type="date" placeholder="date" id="endDate">
-
-            <button type="submit" value="Submit">Submit</button>
-
-        </form>
-
-    </div>
-
-
-
-    <h2>your results</h2>
-
-    <div class="eventContainer wrapper">
-        <ul class="events"></ul>
+        <h2 class="resultsHeader">your results</h2>
+        <div class="eventContainer wrapper">
+            <ul class="events"></ul>
+        </div>
     </div>
 
 

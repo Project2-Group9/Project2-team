@@ -1,4 +1,8 @@
-
+// helper function
+// https://stackoverflow.com/questions/1199352/smart-way-to-truncate-long-strings
+function truncate(str, n) {
+  return str.length > n ? str.substr(0, n - 1) + '...' : str;
+}
 
 function getEvents(city, startDate, endDate) {
   // setting base url?
@@ -6,7 +10,7 @@ function getEvents(city, startDate, endDate) {
   url.search = new URLSearchParams({
     apikey: 'X4inC7WFIbCIszNWQJSMcDLteLVtz85Z',
     city: [city],
-    localStartDateTime: [`${startDate}T14:00:00`, `${endDate}T14:00:00`]
+    localStartDateTime: [`${startDate}T14:00:00`, `${endDate}T14:00:00`],
   });
   //function that updates the city parameter
   fetch(url)
@@ -21,7 +25,6 @@ function getEvents(city, startDate, endDate) {
 }
 
 const formEl = document.querySelector('form');
-
 
 function displayEvents(eventsArray) {
   // clear ul before adding new events
@@ -50,17 +53,26 @@ function displayEvents(eventsArray) {
     // todo: check if URL works?
     eventLink.href = item.url;
 
-
     const eventDate = document.createElement('p');
     eventDate.innerText = item.dates.start.localDate;
-
 
     const eventDescription = document.createElement('p');
     // check for description
     if (item.description) {
-      eventDescription.innerText = item.description;
+      const maxLength = 250;
+      if (item.description.length > maxLength) {
+        eventDescription.innerText = truncate(item.description, maxLength);
+      } else {
+        eventDescription.innerText = item.description;
+      }
     } else {
+      const maxLength = 250;
       eventDescription.innerText = item.pleaseNote;
+      if (item.pleaseNote.length > maxLength) {
+        eventDescription.innerText = truncate(item.pleaseNote, maxLength);
+      } else {
+        eventDescription.innerText = item.pleaseNote;
+      }
     }
 
     textDiv.append(eventName, eventLink, eventDate, eventDescription);
@@ -83,7 +95,4 @@ formEl.addEventListener('submit', function (event) {
   const endValue = endDate.value;
 
   getEvents(inputValue, startValue, endValue);
-  
 });
-
-

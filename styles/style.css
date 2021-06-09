@@ -35,6 +35,11 @@ ul {
   list-style: none;
 }
 
+li {
+  display: inline-block;
+  padding: 3%;
+}
+
 img {
   width: 200px;
   height: 250px;

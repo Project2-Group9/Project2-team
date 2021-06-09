@@ -54,6 +54,7 @@ function getEvents(city) {
   url.search = new URLSearchParams({
     apikey: 'X4inC7WFIbCIszNWQJSMcDLteLVtz85Z',
     city: [city],
+    dateTime:'date'
   });
   //function that updates the city parameter
   fetch(url)

@@ -40,10 +40,7 @@ function displayEvents(eventsArray) {
     // set img src and alt attributes
     // grab last image from the inner image array
     img.src = item.images[item.images.length - 1].url;
-
     imgDiv.append(img);
-
-    //
 
     const textDiv = document.createElement('div');
     textDiv.classList.add('textDiv');

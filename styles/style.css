@@ -43,3 +43,8 @@ img {
   float: left;
   padding-right: 5%;
 }
+
+li {
+  display: inline-block;
+  padding: 3%;
+}

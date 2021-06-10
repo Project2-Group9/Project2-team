@@ -14,8 +14,7 @@ function getEvents(city, startDate, endDate) {
     city: [city],
     dateTime:'date',
   localStartDateTime: [`${startDate}T14:00:00`, `${endDate}T14:00:00`],
-
-  localStartDateTime: [`${startDate}T14:00:00`, `${endDate}T14:00:00`]
+  
   });
   //function that updates the city parameter
   fetch(url)

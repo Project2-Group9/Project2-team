@@ -24,7 +24,6 @@ h1 {
 h2 {
   margin-top: 10%;
   text-align: center;
-  text-shadow: 2px 2px yellow;
 }
 
 h3 {
@@ -47,4 +46,9 @@ img {
      object-fit: cover;
   float: left;
   padding-right: 5%;
+}
+
+li {
+  display: inline-block;
+  padding: 3%;
 }

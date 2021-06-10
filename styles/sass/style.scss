@@ -31,7 +31,8 @@ h1 {
 h2 {
     margin-top: 10%;
     text-align: center;
-    text-shadow: 2px 2px yellow;
+    // text-shadow: 2px 2px yellow;
+    
 
 }
 
@@ -66,3 +67,9 @@ img {
     
     
 // }
+
+li {
+    display: inline-block;
+    padding: 3%;
+}
+

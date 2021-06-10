@@ -244,15 +244,24 @@ template {
   overflow: hidden;
 }
 
-html, body {
+html,
+body {
   background-color: #f9f8f7;
 }
 
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-family: "Roboto", sans-serif;
 }
 
-label, button, .textDiv {
+ul h3 {
+  margin: 50px 0 50px 100px;
+}
+
+label,
+button,
+.textDiv {
   font-family: "Baloo Thambi 2", cursive;
 }
 
@@ -269,7 +278,8 @@ input[type=text] {
   padding: 10px;
 }
 
-button {
+button,
+.eventsLink {
   background-color: #ffcc00;
   margin-top: 40px;
   border-radius: 20px;
@@ -323,6 +333,15 @@ header {
   text-align: left;
   text-shadow: 4px 4px #ffcc00;
   font-size: 3rem;
+}
+
+.resultsHeader {
+  display: inline;
+  font-size: 2.5rem;
+  line-height: 0.9;
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(60%, #f9f8f7), color-stop(55%, #ffcc00));
+  background-image: linear-gradient(#f9f8f7 60%, #ffcc00 55%);
+  margin-left: 100px;
 }
 
 form {
@@ -414,7 +433,8 @@ input[type=text] {
   grid-column: 3/4;
 }
 
-button {
+button,
+.eventsLink {
   grid-row: 3/4;
   grid-column: 1/3;
 }

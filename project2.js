@@ -22,9 +22,19 @@ function getEvents(city, startDate, endDate) {
       return res.json();
     })
     .then(function (data) {
-      const eventsArray = data['_embedded'].events;
-      // console.log(eventsArray);
-      displayEvents(eventsArray);
+      if (data.page.totalElements > 0) {
+        const eventsArray = data['_embedded'].events;
+        // console.log(data);
+        displayEvents(eventsArray);
+      } else {
+        // clear ul
+        document.querySelector('.events').innerHTML = '';
+        const noEventText = document.createElement('h3');
+        noEventText.innerText =
+          'Sorry, looks like there are no events in this area right now.';
+
+        document.querySelector('.events').appendChild(noEventText);
+      }
     });
 }
 
@@ -56,6 +66,7 @@ function displayEvents(eventsArray) {
     eventLink.innerText = 'More Info';
     // todo: check if URL works?
     eventLink.href = item.url;
+    eventLink.target = '_blank';
 
     const eventDate = document.createElement('p');
     eventDate.innerText = item.dates.start.localDate;
@@ -69,7 +80,7 @@ function displayEvents(eventsArray) {
       } else {
         eventDescription.innerText = item.description;
       }
-    } else {
+    } else if (item.pleaseNote) {
       const maxLength = 250;
       eventDescription.innerText = item.pleaseNote;
       if (item.pleaseNote.length > maxLength) {
@@ -77,6 +88,8 @@ function displayEvents(eventsArray) {
       } else {
         eventDescription.innerText = item.pleaseNote;
       }
+    } else {
+      eventDescription.innerText = 'No event description to display';
     }
 
     textDiv.append(eventName, eventLink, eventDate, eventDescription);
@@ -86,6 +99,15 @@ function displayEvents(eventsArray) {
 
     // grab ul from html
     document.querySelector('.events').append(li);
+
+    // scroll to results after data is on the page
+    const results = document.querySelector('#results');
+    const offset = results.offsetTop;
+
+    scroll({
+      top: offset,
+      behavior: 'smooth',
+    });
   });
 }
 

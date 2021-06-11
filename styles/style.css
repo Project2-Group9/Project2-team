@@ -297,6 +297,8 @@ button:focus {
 h1 {
   text-align: center;
   text-shadow: 2px 2px #ffcc00;
+  text-align: center;
+  text-shadow: 2px 2px #ffcc00;
 }
 
 header {
@@ -336,6 +338,15 @@ header {
   font-size: 3rem;
 }
 
+form {
+  /* background-color:yellow; */
+  text-align: left;
+  margin-top: 10%;
+  text-align: left;
+  text-shadow: 4px 4px #ffcc00;
+  font-size: 3rem;
+}
+
 .resultsHeader {
   display: inline;
   font-size: 2.5rem;
@@ -348,12 +359,27 @@ header {
 form {
   /* background-color:yellow; */
   text-align: left;
-
 }
 
 ul {
   list-style: none;
   padding-left: 0;
+}
+
+li {
+  display: inline-block;
+  padding: 3%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin: 100px;
+  -webkit-box-shadow: 20px 20px #ffcc00;
+          box-shadow: 20px 20px #ffcc00;
+  border: 4px solid black;
 }
 
 li {
@@ -395,6 +421,11 @@ img {
       -ms-flex: 2;
           flex: 2;
   padding: 20px;
+}
+
+li {
+  display: inline-block;
+  padding: 3%;
 }
 
 .gridContainer {

@@ -12,7 +12,7 @@ function getEvents(city, startDate, endDate) {
     city: [city],
     localStartDateTime: [`${startDate}T14:00:00`, `${endDate}T14:00:00`],
     sort: 'date,asc',
-    size: '50',
+    size: '30',
   });
   //function that updates the city parameter
   fetch(url)
@@ -42,10 +42,9 @@ function displayEvents(eventsArray) {
   // clear ul before adding new events
   document.querySelector('.events').innerHTML = '';
 
-  const filteredEvents = eventsArray.filter((item, index, self) => 
-    index === self.findIndex((obj) => 
-      (obj.name === item.name)
-    )
+  const filteredEvents = eventsArray.filter(
+    (item, index, self) =>
+      index === self.findIndex((obj) => obj.name === item.name),
   );
 
   filteredEvents.forEach((item) => {
@@ -103,7 +102,6 @@ function displayEvents(eventsArray) {
 
     // grab ul from html
     document.querySelector('.events').append(li);
-
   });
 
   // display results header
@@ -117,6 +115,7 @@ function displayEvents(eventsArray) {
   html.style.overflow = 'visible';
 
   // scroll to results after data is on the page
+  // https://webdesign.tutsplus.com/tutorials/smooth-scrolling-vanilla-javascript--cms-35165
   const results = document.querySelector('#results');
 
   const offset = results.offsetTop;
@@ -132,6 +131,7 @@ formEl.addEventListener('submit', function (event) {
   const inputEl = document.querySelector('input[type=text]');
   const startDate = document.getElementById('startDate');
   const endDate = document.getElementById('endDate');
+  // trim input value so user cant input an empty
   const inputValue = inputEl.value;
   const startValue = startDate.value;
   const endValue = endDate.value;

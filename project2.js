@@ -1,10 +1,16 @@
-// helper function
-// https://stackoverflow.com/questions/1199352/smart-way-to-truncate-long-strings
-function truncate(str, n) {
+
+
+const findEvents = {}
+
+findEvents.truncate = (str, n) => {
   return str.length > n ? str.substr(0, n - 1) + '...' : str;
+  // helper function
+// https://stackoverflow.com/questions/1199352/smart-way-to-truncate-long-strings
 }
 
-function getEvents(city, startDate, endDate) {
+
+
+findEvents.getEvents = (city, startDate, endDate) => {
   // setting base url?
   const url = new URL('https://app.ticketmaster.com/discovery/v2/events');
   url.search = new URLSearchParams({
@@ -13,6 +19,7 @@ function getEvents(city, startDate, endDate) {
     localStartDateTime: [`${startDate}T14:00:00`, `${endDate}T14:00:00`],
     sort: 'date,asc',
     size: '30',
+    genreId:['Football']
   });
   //function that updates the city parameter
   fetch(url)
@@ -23,7 +30,7 @@ function getEvents(city, startDate, endDate) {
       if (data.page.totalElements > 0) {
         const eventsArray = data['_embedded'].events;
         // console.log(data);
-        displayEvents(eventsArray);
+        findEvents.displayEvents(eventsArray);
       } else {
         // clear ul
         document.querySelector('.events').innerHTML = '';
@@ -34,10 +41,10 @@ function getEvents(city, startDate, endDate) {
         document.querySelector('.events').appendChild(noEventText);
 
         const resultsHeader = document.querySelector('.resultsHeader');
-        const html = document.querySelector('html');
+        
 
         resultsHeader.style.display = 'inline';
-        html.style.overflow = 'visible';
+        
 
         const results = document.querySelector('#results');
 
@@ -51,9 +58,9 @@ function getEvents(city, startDate, endDate) {
     });
 }
 
-const formEl = document.querySelector('form');
 
-function displayEvents(eventsArray) {
+
+findEvents.displayEvents = (eventsArray) => {
   // clear ul before adding new events
   document.querySelector('.events').innerHTML = '';
 
@@ -94,7 +101,7 @@ function displayEvents(eventsArray) {
     if (item.description) {
       const maxLength = 250;
       if (item.description.length > maxLength) {
-        eventDescription.innerText = truncate(item.description, maxLength);
+        eventDescription.innerText = findEvents.truncate(item.description, maxLength);
       } else {
         eventDescription.innerText = item.description;
       }
@@ -102,7 +109,7 @@ function displayEvents(eventsArray) {
       const maxLength = 250;
       eventDescription.innerText = item.pleaseNote;
       if (item.pleaseNote.length > maxLength) {
-        eventDescription.innerText = truncate(item.pleaseNote, maxLength);
+        eventDescription.innerText = findEvents.truncate(item.pleaseNote, maxLength);
       } else {
         eventDescription.innerText = item.pleaseNote;
       }
@@ -123,11 +130,8 @@ function displayEvents(eventsArray) {
   const resultsHeader = document.querySelector('.resultsHeader');
   resultsHeader.style.display = 'inline';
 
-  // allow scroll when results return
+  
 
-  const html = document.querySelector('html');
-
-  html.style.overflow = 'visible';
 
   // scroll to results after data is on the page
   // https://webdesign.tutsplus.com/tutorials/smooth-scrolling-vanilla-javascript--cms-35165
@@ -141,6 +145,12 @@ function displayEvents(eventsArray) {
   });
 }
 
+
+
+findEvents.init = () => {
+
+const formEl = document.querySelector('form');
+
 formEl.addEventListener('submit', function (event) {
   event.preventDefault();
   const inputEl = document.querySelector('input[type=text]');
@@ -150,5 +160,11 @@ formEl.addEventListener('submit', function (event) {
   const startValue = startDate.value;
   const endValue = endDate.value;
 
-  getEvents(inputValue, startValue, endValue);
+  findEvents.getEvents(inputValue, startValue, endValue);
+
 });
+
+
+}
+
+findEvents.init();

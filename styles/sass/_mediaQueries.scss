@@ -54,6 +54,32 @@
     
 }
 
+@media screen and (max-width: 600px) {
+
+
+    .resultsHeader {
+    display: none;
+
+    }
+
+    .logo {
+
+    position: relative;
+    }
+
+
+    .logo h1 {
+        position: absolute;
+        margin-top: 10%;
+
+    }
+
+    ul h4 {
+    margin: 50px 30px;
+}
+
+}
+
 
 
 @media (max-width: 550px) {

@@ -541,15 +541,17 @@ button,
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+    margin-top: 100px;
   }
 
   .formHeader {
     text-align: center;
+    font-size: 2rem;
     margin: 0px 20px 40px;
   }
 
   .gridContainer {
-    width: 50%;
+    width: 70%;
     grid-template-columns: 1fr;
     grid-template-rows: 30px 50px 30px 50px 30px 50px 1fr;
   }

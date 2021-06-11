@@ -19,7 +19,6 @@ findEvents.getEvents = (city, startDate, endDate) => {
     localStartDateTime: [`${startDate}T14:00:00`, `${endDate}T14:00:00`],
     sort: 'date,asc',
     size: '30',
-    genreId:['Football']
   });
   //function that updates the city parameter
   fetch(url)

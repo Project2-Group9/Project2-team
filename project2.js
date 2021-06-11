@@ -11,6 +11,8 @@ function getEvents(city, startDate, endDate) {
     apikey: 'X4inC7WFIbCIszNWQJSMcDLteLVtz85Z',
     city: [city],
     localStartDateTime: [`${startDate}T14:00:00`, `${endDate}T14:00:00`],
+    sort: 'date,asc',
+    size: '30',
   });
   //function that updates the city parameter
   fetch(url)
@@ -40,10 +42,9 @@ function displayEvents(eventsArray) {
   // clear ul before adding new events
   document.querySelector('.events').innerHTML = '';
 
-  const filteredEvents = eventsArray.filter((item, index, self) => 
-    index === self.findIndex((obj) => 
-      (obj.name === item.name)
-    )
+  const filteredEvents = eventsArray.filter(
+    (item, index, self) =>
+      index === self.findIndex((obj) => obj.name === item.name),
   );
 
   filteredEvents.forEach((item) => {
@@ -101,7 +102,6 @@ function displayEvents(eventsArray) {
 
     // grab ul from html
     document.querySelector('.events').append(li);
-
   });
 
   // display results header
@@ -115,6 +115,7 @@ function displayEvents(eventsArray) {
   html.style.overflow = 'visible';
 
   // scroll to results after data is on the page
+  // https://webdesign.tutsplus.com/tutorials/smooth-scrolling-vanilla-javascript--cms-35165
   const results = document.querySelector('#results');
 
   const offset = results.offsetTop;

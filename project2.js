@@ -94,7 +94,7 @@ function displayEvents(eventsArray) {
       eventDescription.innerText = 'No event description to display';
     }
 
-    textDiv.append(eventName, eventLink, eventDate, eventDescription);
+    textDiv.append(eventName, eventDate, eventLink, eventDescription);
 
     //
     li.append(imgDiv, textDiv);

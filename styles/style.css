@@ -259,43 +259,9 @@ h4 {
   font-family: "Roboto", sans-serif;
 }
 
-ul h4 {
-  margin: 50px 0 50px 100px;
-}
-
-label,
-button,
-.textDiv {
-  font-family: "Baloo Thambi 2", cursive;
-}
-
 .wrapper {
   max-width: 1300px;
   margin: 0 auto;
-}
-
-input {
-  border: solid 2px black;
-}
-
-input[type=text] {
-  padding: 10px;
-}
-
-button,
-.eventsLink {
-  background-color: #ffcc00;
-  margin-top: 40px;
-  border-radius: 20px;
-  font-size: 1rem;
-  padding: 10px;
-  border: 4px solid #ffcc00;
-}
-
-button:hover,
-button:focus {
-  border: 4px solid black;
-  cursor: pointer;
 }
 
 .logo {
@@ -357,6 +323,36 @@ header {
   font-size: 3rem;
 }
 
+label,
+button,
+.textDiv {
+  font-family: "Baloo Thambi 2", cursive;
+}
+
+input {
+  border: solid 2px black;
+}
+
+input[type=text] {
+  padding: 10px;
+}
+
+button,
+.eventsLink {
+  background-color: #ffcc00;
+  margin-top: 40px;
+  border-radius: 20px;
+  font-size: 1rem;
+  padding: 10px;
+  border: 4px solid #ffcc00;
+}
+
+button:hover,
+button:focus {
+  border: 4px solid black;
+  cursor: pointer;
+}
+
 .results {
   padding-top: 100px;
 }
@@ -373,6 +369,10 @@ header {
 ul {
   list-style: none;
   padding-left: 0;
+}
+
+ul h4 {
+  margin: 50px 0 50px 100px;
 }
 
 li {
@@ -414,6 +414,13 @@ img {
       -ms-flex: 2;
           flex: 2;
   padding: 20px;
+}
+.textDiv a,
+.textDiv p:first-of-type {
+  display: inline-block;
+}
+.textDiv a {
+  margin-left: 20px;
 }
 
 form {
@@ -520,6 +527,16 @@ button,
   }
 }
 @media (max-width: 550px) {
+  .logo {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+
+  h1 {
+    margin-left: 0;
+  }
+
   .header {
     -webkit-box-align: center;
         -ms-flex-align: center;
@@ -532,6 +549,7 @@ button,
   }
 
   .gridContainer {
+    width: 50%;
     grid-template-columns: 1fr;
     grid-template-rows: 30px 50px 30px 50px 30px 50px 1fr;
   }
@@ -559,5 +577,13 @@ button,
   button {
     grid-row: 7/8;
     grid-column: 1/2;
+  }
+
+  .resultsHeader {
+    margin-left: 30px;
+  }
+
+  li {
+    margin: 80px 40px 80px 30px;
   }
 }

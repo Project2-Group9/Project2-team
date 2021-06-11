@@ -131,7 +131,6 @@ formEl.addEventListener('submit', function (event) {
   const inputEl = document.querySelector('input[type=text]');
   const startDate = document.getElementById('startDate');
   const endDate = document.getElementById('endDate');
-  // trim input value so user cant input an empty
   const inputValue = inputEl.value;
   const startValue = startDate.value;
   const endValue = endDate.value;

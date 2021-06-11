@@ -204,3 +204,33 @@ button,
 }
 
 @import 'mediaQueries';
+
+//for viewing on mobiles
+
+@media screen and (max-width: 600px) {
+
+.gridContainer {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+
+}
+
+.resultsHeader {
+  display: none;
+
+}
+
+.logo {
+
+  position: relative;
+}
+
+
+.logo h1 {
+  position: absolute;
+  margin-top: 25%;
+
+}
+
+}

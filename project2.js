@@ -32,6 +32,21 @@ function getEvents(city, startDate, endDate) {
           'Sorry, looks like there are no events in this area right now.';
 
         document.querySelector('.events').appendChild(noEventText);
+
+        const resultsHeader = document.querySelector('.resultsHeader');
+        const html = document.querySelector('html');
+
+        resultsHeader.style.display = 'inline';
+        html.style.overflow = 'visible';
+
+        const results = document.querySelector('#results');
+
+        const offset = results.offsetTop;
+
+        scroll({
+          top: offset,
+          behavior: 'smooth',
+        });
       }
     });
 }

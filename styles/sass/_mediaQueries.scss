@@ -1,3 +1,15 @@
+@media (max-width: 950px) {
+    li {
+        flex-direction: column;
+    }
+
+    .imgDiv img {
+            position: relative;
+            width: 100%;
+            height: auto;
+    }
+}
+
 
 @media (max-width: 700px) {
     .gridContainer {
@@ -39,11 +51,20 @@
         grid-row: 5 / 6;
         grid-column: 1 / 2;
     }
+    
 }
 
 
 
 @media (max-width: 550px) {
+
+    .logo {
+        justify-content: center;
+    }
+
+    h1 {
+        margin-left: 0;
+    }
 
     .header {
         align-items: center;
@@ -51,10 +72,11 @@
 
     .formHeader {
         text-align: center;
-        margin: 0px 20px 40px;          
+        margin: 0px 20px 40px;
     }
 
     .gridContainer {
+        width: 50%;
         grid-template-columns: 1fr;
         grid-template-rows: 30px 50px 30px 50px 30px 50px 1fr;
     }
@@ -83,4 +105,13 @@
         grid-row: 7 / 8;
         grid-column: 1 / 2;
     }
+
+    .resultsHeader {
+        margin-left: 30px;
+    }
+
+    li {
+        margin: 80px 40px 80px 30px;
+    }
+
 }

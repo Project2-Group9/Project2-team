@@ -10,25 +10,65 @@ body {
   background-color: $backgroundColor;
 }
 
-h1,
+html {
+  overflow: hidden;
+}
+
 h2,
-h3 {
+h3,
+h4 {
   font-family: $header-font;
 }
 
-ul h3 {
-  margin: 50px 0 50px 100px;
+.wrapper {
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.logo {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+
+h1 {
+  margin-left: 100px;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 700;
+}
+
+h1 span {
+  font-weight: 400;
+}
+
+header {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: column;
+  margin-top: 200px;
+}
+
+.formHeader {
+  margin-top: 10%;
+  text-align: left;
+  text-shadow: 4px 4px $yellow;
+  font-size: 3rem;
 }
 
 label,
 button,
 .textDiv {
   font-family: $text-font;
-}
-
-.wrapper {
-  max-width: 1300px;
-  margin: 0 auto;
 }
 
 input {
@@ -55,50 +95,25 @@ button:focus {
   cursor: pointer;
 }
 
-h1 {
-  text-align: center;
-  text-shadow: 2px 2px $yellow;
-}
-
-header {
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-}
-
-.header {
-  display: flex;
-  flex-direction: column;
-  margin-top: 200px;
-}
-
-.formHeader {
-  margin-top: 10%;
-  text-align: left;
-  text-shadow: 4px 4px $yellow;
-  font-size: 3rem;
+.results {
+  padding-top: 100px;
 }
 
 .resultsHeader {
-  display: inline;
+  display: none;
   font-size: 2.5rem;
   line-height: 0.9;
-  background-image: linear-gradient($backgroundColor 60%, $yellow 55%);
+  background-image: linear-gradient(transparent 60%, $yellow 55%);
   margin-left: 100px;
-}
-
-form {
-  /* background-color:yellow; */
-
-  text-align: left;
 }
 
 ul {
   list-style: none;
   padding-left: 0;
+}
+
+ul h4 {
+  margin: 50px 0 50px 100px;
 }
 
 li {
@@ -126,9 +141,23 @@ img {
 .textDiv {
   flex: 2;
   padding: 20px;
+
+  a,
+  p:first-of-type {
+    display: inline-block;
+  }
+
+  a {
+    margin-left: 20px;
+  }
+
 }
 
 // form Grid
+
+form {
+  text-align: left;
+}
 
 .gridContainer {
   display: grid;

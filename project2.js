@@ -11,6 +11,8 @@ function getEvents(city, startDate, endDate) {
     apikey: 'X4inC7WFIbCIszNWQJSMcDLteLVtz85Z',
     city: [city],
     localStartDateTime: [`${startDate}T14:00:00`, `${endDate}T14:00:00`],
+    sort: 'date,asc',
+    size: '50',
   });
   //function that updates the city parameter
   fetch(url)

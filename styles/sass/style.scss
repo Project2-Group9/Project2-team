@@ -10,6 +10,10 @@ body {
   background-color: $backgroundColor;
 }
 
+html {
+  overflow: hidden;
+}
+
 h2,
 h3,
 h4 {
@@ -96,8 +100,12 @@ header {
   font-size: 3rem;
 }
 
+.results {
+  padding-top: 100px;
+}
+
 .resultsHeader {
-  display: inline;
+  display: none;
   font-size: 2.5rem;
   line-height: 0.9;
   background-image: linear-gradient(transparent 60%, $yellow 55%);

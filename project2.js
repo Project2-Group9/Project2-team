@@ -40,7 +40,13 @@ function displayEvents(eventsArray) {
   // clear ul before adding new events
   document.querySelector('.events').innerHTML = '';
 
-  eventsArray.forEach((item) => {
+  const filteredEvents = eventsArray.filter((item, index, self) => 
+    index === self.findIndex((obj) => 
+      (obj.name === item.name)
+    )
+  );
+
+  filteredEvents.forEach((item) => {
     const li = document.createElement('li');
 
     const imgDiv = document.createElement('div');
@@ -96,14 +102,26 @@ function displayEvents(eventsArray) {
     // grab ul from html
     document.querySelector('.events').append(li);
 
-    // scroll to results after data is on the page
-    const results = document.querySelector('#results');
-    const offset = results.offsetTop;
+  });
 
-    scroll({
-      top: offset,
-      behavior: 'smooth',
-    });
+  // display results header
+  const resultsHeader = document.querySelector('.resultsHeader');
+  resultsHeader.style.display = 'inline';
+
+  // allow scroll when results return
+
+  const html = document.querySelector('html');
+
+  html.style.overflow = 'visible';
+
+  // scroll to results after data is on the page
+  const results = document.querySelector('#results');
+
+  const offset = results.offsetTop;
+
+  scroll({
+    top: offset,
+    behavior: 'smooth',
   });
 }
 

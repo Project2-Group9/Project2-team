@@ -29,7 +29,7 @@ function getEvents(city, startDate, endDate) {
       } else {
         // clear ul
         document.querySelector('.events').innerHTML = '';
-        const noEventText = document.createElement('h3');
+        const noEventText = document.createElement('h4');
         noEventText.innerText =
           'Sorry, looks like there are no events in this area right now.';
 

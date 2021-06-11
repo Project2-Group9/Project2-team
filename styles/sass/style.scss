@@ -10,13 +10,13 @@ body {
   background-color: $backgroundColor;
 }
 
-h1,
 h2,
-h3 {
+h3,
+h4 {
   font-family: $header-font;
 }
 
-ul h3 {
+ul h4 {
   margin: 50px 0 50px 100px;
 }
 
@@ -55,11 +55,29 @@ button:focus {
   cursor: pointer;
 }
 
+
+.logo {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+
 h1 {
     text-align: center;
     text-shadow: 2px 2px $yellow;
     text-align: center;
     text-shadow: 2px 2px $yellow;
+
+  margin-left: 100px;
+  font-family: 'Roboto Mono', monospace;
+  font-weight: 700;
+}
+
+h1 span {
+  font-weight: 400;
+
 }
 
 header {
@@ -101,15 +119,9 @@ form {
   display: inline;
   font-size: 2.5rem;
   line-height: 0.9;
-  background-image: linear-gradient($backgroundColor 60%, $yellow 55%);
+  background-image: linear-gradient(transparent 60%, $yellow 55%);
   margin-left: 100px;
 
-}
-
-form {
-  /* background-color:yellow; */
-
-  text-align: left;
 }
 
 ul {
@@ -168,6 +180,10 @@ li {
 }
 
 // form Grid
+
+form {
+  text-align: left;
+}
 
 .gridContainer {
   display: grid;

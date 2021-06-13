@@ -10,7 +10,7 @@ findEvents.truncate = (str, n) => {
 
 
 
-findEvents.getEvents = (city, startDate, endDate) => {
+findEvents.getEvents = (city, startDate, endDate, genre) => {
   // setting base url?
   const url = new URL('https://app.ticketmaster.com/discovery/v2/events');
   url.search = new URLSearchParams({
@@ -19,6 +19,7 @@ findEvents.getEvents = (city, startDate, endDate) => {
     localStartDateTime: [`${startDate}T14:00:00`, `${endDate}T14:00:00`],
     sort: 'date,asc',
     size: '30',
+    classificationName: [genre],
   });
   //function that updates the city parameter
   fetch(url)
@@ -28,7 +29,6 @@ findEvents.getEvents = (city, startDate, endDate) => {
     .then(function (data) {
       if (data.page.totalElements > 0) {
         const eventsArray = data['_embedded'].events;
-        // console.log(data);
         findEvents.displayEvents(eventsArray);
       } else {
         // clear ul
@@ -88,7 +88,6 @@ findEvents.displayEvents = (eventsArray) => {
 
     const eventLink = document.createElement('a');
     eventLink.innerText = 'More Info';
-    // todo: check if URL works?
     eventLink.href = item.url;
     eventLink.target = '_blank';
 
@@ -118,7 +117,6 @@ findEvents.displayEvents = (eventsArray) => {
 
     textDiv.append(eventName, eventDate, eventLink, eventDescription);
 
-    //
     li.append(imgDiv, textDiv);
 
     // grab ul from html
@@ -152,14 +150,16 @@ const formEl = document.querySelector('form');
 
 formEl.addEventListener('submit', function (event) {
   event.preventDefault();
-  const inputEl = document.querySelector('input[type=text]');
+  const inputEl = document.querySelector('.city');
+  const genreInput = document.querySelector('.genre');
   const startDate = document.getElementById('startDate');
   const endDate = document.getElementById('endDate');
   const inputValue = inputEl.value;
+  const genreValue = genreInput.value.trim();
   const startValue = startDate.value;
   const endValue = endDate.value;
 
-  findEvents.getEvents(inputValue, startValue, endValue);
+  findEvents.getEvents(inputValue, startValue, endValue, genreValue);
 
 });
 

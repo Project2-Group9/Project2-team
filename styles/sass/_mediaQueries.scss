@@ -12,6 +12,11 @@
 
 
 @media (max-width: 700px) {
+
+    .header {
+        width: 80%;
+    }
+
     .gridContainer {
         grid-template-columns: repeat(2, 1fr);
         grid-template-rows: 30px 50px 30px 50px 1fr;
@@ -32,7 +37,7 @@
         grid-column: 2 / 3;
     }
     
-    input[type="text"] {
+    .city {
         grid-row: 2 / 3;
         grid-column: 1 / 2;
     }
@@ -104,33 +109,47 @@
     }
 
     .gridContainer {
-        width: 70%;
         grid-template-columns: 1fr;
-        grid-template-rows: 30px 50px 30px 50px 30px 50px 1fr;
+        grid-template-rows: 30px 50px 30px 50px 30px 50px 30px 50px 1fr;
     }
-    
-    .endDateLabel {
+
+    label[for='genre'] {
+        grid-row: 3 / 4;
+        grid-column: 1 / 2;
+    }
+
+    .startDateLabel {
         grid-row: 5 / 6;
         grid-column: 1 / 2;
     }
     
-    input[type="text"] {
-        grid-row: 2 / 3;
+    .endDateLabel {
+        grid-row: 7 / 8;
         grid-column: 1 / 2;
     }
     
-    .startDate {
+    .city {
+        grid-row: 2 / 3;
+        grid-column: 1 / 2;
+    }
+
+    .genre {
         grid-row: 4 / 5;
         grid-column: 1 / 2;
     }
     
-    .endDate {
+    .startDate {
         grid-row: 6 / 7;
         grid-column: 1 / 2;
     }
     
+    .endDate {
+        grid-row: 8 / 9;
+        grid-column: 1 / 2;
+    }
+    
     button {
-        grid-row: 7 / 8;
+        grid-row: 9 / 10;
         grid-column: 1 / 2;
     }
 
